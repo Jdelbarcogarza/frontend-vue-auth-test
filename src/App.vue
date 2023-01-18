@@ -8,8 +8,15 @@ import AppBar from './components/AppBar.vue';
 <template>
   
   <header>
-    <AppBar />
   </header>
+  
+  <q-layout view="hHh lpR fFf">
+    
+    <AppBar />
 
-  <RouterView />
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+  </q-layout>
+
 </template>
