@@ -1,5 +1,5 @@
 <template>
-	<div class="q-pa-md shadow-1" style=" width: 500px; max-width: 600px">
+	<div class="q-pa-md shadow-1" style="width: 500px; max-width: 600px">
 		<q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
 			<q-input
 				filled
@@ -54,7 +54,7 @@ import { useQuasar } from "quasar";
 import axios from "axios";
 
 import { API } from "../../api/baseUrl";
-import router from '../../router/index'
+import router from "../../router/index";
 
 const $q = useQuasar();
 
@@ -72,37 +72,31 @@ const onReset = () => {
 };
 
 const onSubmit = async () => {
-	
-  const req = await axios.post(API.baseUrl + "/api/v1/auth/register", {
+	const req = await axios.post(API.baseUrl + "/api/v1/auth/register", {
 		names: userName.value,
 		lastNames: userLastName.value || null,
 		email: userEmail.value,
 		password: userPassword.value || null,
 	});
 
-  // if query was successfull
-  if (req.status === 200) {
-    // $q.notify({
-    //   color: "green-4",
-    //   textColor: "white",
-    //   icon: "cloud_done",
-    //   message: "Submitted",
-    // });
+	// if query was successfull
+	if (req.status === 200) {
+		$q.notify({
+			color: "green-4",
+			textColor: "white",
+			icon: "cloud_done",
+			message: "Submitted",
+		});
 
-    // programatically redirect to new rooute
-    router.push({name: 'about'})
-
-  } 
-  // else {
-  //   $q.notify({
-  //     color: "red-6",
-  //     textColor: "white",
-  //     icon: "cloud_done",
-  //     message: "something went wrong",
-  //   });
-  // }
-
-  
-
+		// programatically redirect to new route
+		router.push({ name: "about" });
+	} else {
+		$q.notify({
+			color: "red-6",
+			textColor: "white",
+			icon: "cloud_done",
+			message: "something went wrong",
+		});
+	}
 };
 </script>
