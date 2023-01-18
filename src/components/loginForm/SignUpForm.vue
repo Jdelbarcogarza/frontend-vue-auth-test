@@ -91,8 +91,6 @@ const onSubmit = async () => {
 			message: "Submitted",
 		});
 
-		console.log("token de retorno", req.data.token);
-
 		// ------------- INFO -------------
 		// save auth token in axios default header from this point on.
 		// or in a pinia store. But the best solution is to have a backend endpoint
