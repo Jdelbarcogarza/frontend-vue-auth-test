@@ -23,6 +23,14 @@ const router = createRouter({
       name: 'login',
       component: LoginView
     },
+    {
+      // 
+      path: '/start' ,
+      name: 'start',
+      // como no sabemos si el usuario se autenticara, solo cargamos esta pagina
+      // si se autentico correctamente.
+      component: () => import('../views/authenticated/StartView.vue')
+    }
   ]
 })
 
