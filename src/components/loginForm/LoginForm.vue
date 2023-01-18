@@ -46,7 +46,7 @@ const onSubmit = async () => {
 
   const authToken = store.getAuthToken()
 
-  const req = await axios.post(API.baseUrl + "api/v1/auth/authenticate", {
+  const req = await axios.post(API.baseUrl + "/api/v1/auth/authenticate", {
     email: userEmail.value,
     password: userPassword.value,
   })
