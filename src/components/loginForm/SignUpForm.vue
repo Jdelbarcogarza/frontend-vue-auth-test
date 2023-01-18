@@ -100,7 +100,7 @@ const onSubmit = async () => {
 		store.setAuthToken(req.data.token);
 
 		// programatically redirect to new route
-		router.push({ name: "about" });
+		router.push({ name: "start" });
 	} else {
 		$q.notify({
 			color: "red-6",
