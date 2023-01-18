@@ -8,6 +8,11 @@ import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+
+  server: {
+     cors: { origin: '*' }
+  },
+
   plugins: [vue({
     template: { transformAssetUrls }
   }), 
