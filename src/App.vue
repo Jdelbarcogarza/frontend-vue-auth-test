@@ -15,7 +15,7 @@ import AppBar from './components/AppBar.vue';
     <AppBar />
 
     <q-page-container>
-      <router-view />
+      <RouterView />
     </q-page-container>
   </q-layout>
 
