@@ -55,6 +55,7 @@ import axios from "axios";
 
 import { API } from "../../api/baseUrl";
 import router from "../../router/index";
+import { useAuthTokenStore } from "../../stores/authTokenStore";
 
 const $q = useQuasar();
 
@@ -63,6 +64,8 @@ const userName = ref<string>("");
 const userPassword = ref<string>("");
 const userEmail = ref<string>("");
 const userLastName = ref<string>("");
+
+const store = useAuthTokenStore();
 
 const onReset = () => {
 	userName.value = "";
@@ -87,6 +90,16 @@ const onSubmit = async () => {
 			icon: "cloud_done",
 			message: "Submitted",
 		});
+
+		console.log("token de retorno", req.data.token);
+
+		// ------------- INFO -------------
+		// save auth token in axios default header from this point on.
+		// or in a pinia store. But the best solution is to have a backend endpoint
+		// to check if there is a session token stored there any time.
+
+		// Pinia store
+		store.setAuthToken(req.data.token);
 
 		// programatically redirect to new route
 		router.push({ name: "about" });
