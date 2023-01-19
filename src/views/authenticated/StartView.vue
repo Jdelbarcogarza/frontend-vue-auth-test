@@ -15,12 +15,14 @@ import { useAuthTokenStore } from '@/stores/authTokenStore';
 import { useToggleDrawer } from '@/stores/uiStores/drawerStore';
 
 import { ref } from 'vue'
+import { storeToRefs } from 'pinia';
 
 const authStore = useAuthTokenStore()
 const openDrawerStore = useToggleDrawer()
 
 const authToken = authStore.getAuthToken()
-const isDrawerOpen = openDrawerStore.isDrawerOpen
+
+const { isDrawerOpen } = storeToRefs(openDrawerStore)
 
 const authTokenRef = ref<string>('')
 
