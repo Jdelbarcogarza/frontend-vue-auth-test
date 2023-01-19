@@ -2,7 +2,7 @@
 
     <q-header bordered class="bg-primary text-white">
       <q-toolbar>
-        <q-btn dense flat round icon="menu" @click="toggleDrawer" />
+        <q-btn dense flat round icon="menu" @click="toggleDrawer" v-if="isUserAthenticated()" />
         <q-toolbar-title>
           <q-avatar>
             <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
