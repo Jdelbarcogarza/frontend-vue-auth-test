@@ -25,7 +25,7 @@
 				<p class="bg-purple-2">ICON</p>
 			</q-item-section>
 			<q-item-section>
-				<RouterLink :to="{ name: 'start' }">Agregar prospecto</RouterLink>
+				<RouterLink :to="{ name: 'addProspect' }">Agregar prospecto</RouterLink>
 			</q-item-section>
 		</q-item>
 		<q-separator />
@@ -38,6 +38,9 @@
 			<div class="q-py-sm">item 3</div>
 		</div>
 	</q-drawer>
+
+  <RouterView />
+
 </template>
 
 <script lang="ts" setup>
