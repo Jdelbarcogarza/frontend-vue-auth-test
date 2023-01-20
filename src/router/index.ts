@@ -6,6 +6,7 @@ import LoginView from '../views/LoginView.vue'
 
 // pages user has access when authenticated
 import RegisterProspectsView from '../views/authenticated/RegisterProspectView.vue'
+import ProspectListView from '../views/authenticated/ProspectListView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,6 +40,11 @@ const router = createRouter({
           path: '/addProspect',
           name: 'addProspect',
           component:  RegisterProspectsView
+        },
+        {
+          path: '/prospectList',
+          name: 'prospectList',
+          component: ProspectListView
         }
       ]
     }
