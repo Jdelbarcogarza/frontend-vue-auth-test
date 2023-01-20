@@ -1,6 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
+// pages when user notauthenticated
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
+
+// pages user has access when authenticated
+import RegisterProspectsView from '../views/authenticated/RegisterProspectView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,12 +29,18 @@ const router = createRouter({
       component: LoginView
     },
     {
-      // 
       path: '/start' ,
       name: 'start',
       // como no sabemos si el usuario se autenticara, solo cargamos esta pagina
       // si se autentico correctamente.
-      component: () => import('../views/authenticated/StartView.vue')
+      component: () => import('../views/authenticated/StartView.vue'),
+      children: [
+        {
+          path: '/addProspect',
+          name: 'addProspect',
+          component:  RegisterProspectsView
+        }
+      ]
     }
   ]
 })
