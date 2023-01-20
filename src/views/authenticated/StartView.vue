@@ -30,6 +30,16 @@
 		</q-item>
 		<q-separator />
 
+    <q-item clickable v-ripple>
+			<q-item-section avatar>
+				<p class="bg-purple-2">ICON 2</p>
+			</q-item-section>
+			<q-item-section>
+				<RouterLink :to="{ name: 'prospectList' }">Lista de prospecto</RouterLink>
+			</q-item-section>
+		</q-item>
+		<q-separator />
+
 		<div class="column q-pt-xl">
 			<div class="q-py-sm">item 1</div>
 
